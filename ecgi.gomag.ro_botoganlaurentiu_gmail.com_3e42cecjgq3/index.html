@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="ro">
+	<head>
+									<meta charset="UTF-8">
+		<meta name="expires" content="never">
+		<meta name="revisit-after" content="1 days">
+		<title></title>
+							<meta name="keywords" content="">
+		<meta name="description" content="">
+		<meta class="viewport" name="viewport" content="width=device-width, initial-scale=1.0">
+					<meta property="og:image" content="http://ecgi.skw.rofactual-skw-ro/domains/factual/files/company/logo5587.png"/>
+		<meta name="distribution" content="Global">
+		<meta name="owner" content="factual.gomag.ro">
+		<meta name="publisher" content="factual.gomag.ro">
+		<meta name="rating" content="General">
+		<meta name="copyright" content="Copyright factual.gomag.ro 2019. All rights reserved">
+		<link rel="search" href="http://ecgi.gomag.ro/opensearch.ro.xml" type="application/opensearchdescription+xml" title="Cautare"/>
+		<script src="cdn5-gomag-ro/themes/fashion/js/cdn5_subdomain/jquery-2.1.4.min.js"></script>
+		<script src="cdn5-gomag-ro/themes/fashion/js/cdn5_subdomain/jquery.autocomplete.js"></script>
+		<script src="cdn5-gomag-ro/themes/fashion/js/cdn5_subdomain/gomag.config.js"></script>
+		<script src="cdn5-gomag-ro/themes/fashion/js/cdn5_subdomain/gomag.js"></script>
+	</head>
+	<body style = " " >
+		<link rel="stylesheet" href="cdn5-gomag-ro/themes/fashion/css/cdn5_subdomain/main-min.css" data-values='{"blockScripts": "1"}'>
+		<link rel="stylesheet" href="cdn5-gomag-ro/themes/fashion/css/cdn5_subdomain/dev.css">
+					<link rel="stylesheet" href="cdn5-gomag-ro/domains/ecgi/files/themes/cdn5_subdomain/custom.css">
+		<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+		<script>
+			$(window).load(function() {$('#wrapper').animate({opacity:1},800);
+				$('#loader').fadeOut(500);
+			});
+		</script>
+		<div id="loader"><div class="loader"></div></div>
+		<div id="wrapper">
+			<div class="discount-tape hellobar-itc bg-main container-h full hide" id="_gomagHellobarITC"></div>
+			<div id="_cartSummary" class="hide"></div>
+<script>
+	$(document).ready(function() {
+		// Added by flo. toggle search on mobile
+		$('.search-m').click(function() {
+			$('.search-toggle').slideToggle();
+			$('.search-open').toggle();
+			$('.search-close').toggle();
+		});
+		$('#_cartSummary').on('updateCart', function(event, cart) {
+			var t = $(this);
+			$.get('http://ecgi.gomag.ro/cart-update', {
+				cart: cart
+			}, function(data) {
+				$('.q-cart').html(data.quantity);
+				$('.cartPrice').html(data.subtotal + ' ' + data.currency);
+				$('.cartProductCount').html(data.quantity);
+			}, 'json');
+			window.ga = window.ga || function() {
+				(ga.q = ga.q || []).push(arguments)
+			};
+			ga('send', 'event', 'Buton', 'Click', 'Adauga_Cos');
+		});
+	});
+</script>
+<header class="main-header container-bg clearfix" data-block="headerBlock">
+			<div class="top-head-bg container-h full">
+			<div class="top-head container-h">
+				<div class="row">
+					<div class="col-md-3 col-sm-3 col-xs-5 logo-h">
+							<a href="index.html" id="logo">
+								<img src="factual-skw-ro/domains/factual/files/company/logo5587.png" class="img-responsive" alt="ecgi" title="ecgi">
+							</a>
+											</div>
+					<div class="col-md-4 col-sm-4 col-xs-7 main search-form-box">
+						<form name="search-form" class="search-form" action="produse.html" id="_searchFormMainHeader">
+							<input id="_autocompleteSearchMainHeader" name="c" class="input-placeholder" type="text" placeholder="Cauta in site...">
+							<button id="_doSearch" class="search-button">
+								<i class="fa fa-search" aria-hidden="true"></i>
+							</button>
+							<script>
+								$(document).ready(function() {
+									$('#_autocompleteSearchMainHeader').autocomplete({
+										serviceUrl: 'http://ecgi.gomag.ro/autocomplete',
+										minChars: 2,
+										appendTo: '#_searchFormMainHeader',
+										width: parseInt($('#_doSearch').offset().left) - parseInt($('#_autocompleteSearchMainHeader').offset().left),
+										formatResult: function(suggestion, currentValue) {
+											return suggestion.value;
+										},
+										onSelect: function(suggestion) {
+											$(this).val(suggestion.data);
+										}
+									});
+								});
+							</script>
+						</form>
+					</div>
+					<div class="col-md-5 col-sm-5 acount-section">
+						<ul>
+								<li>
+									<a href="inregistrare.html">
+										<i class="fa fa-user-o" aria-hidden="true"></i>
+										<span>Intra in cont</span>
+									</a>
+								</li>
+								<li>
+									<a href="ajutor.html">
+										<i class="fa fa-info-circle" aria-hidden="true"></i>
+										<span>Ajutor</span></a>
+								</li>
+														<li class="contact-header">
+								<a href="tel:">
+									<i class="fa fa-phone" aria-hidden="true"></i>
+									<span></span></a>
+							</li>
+							<li class="cart-header-btn cart">
+								<a class="cart-drop _showCartHeader" href="cos-de-cumparaturi.html">
+									<span class="q-cart">0</span>
+									<i class="fa fa-shopping-bag" aria-hidden="true"></i>
+									<span class="count cartPrice">0,00
+										Lei</span>
+									<i class="fa fa-angle-down"></i>
+								</a>
+								<div class="cart-dd _cartShow cart-closed"></div>
+							</li>
+																				</ul>
+						<script>
+							$(document).ready(function() {
+								//Cart
+								$('.cart').mouseenter(function() {
+									$.Gomag.showCartSummary('div._cartShow');
+									$('div._cartShow').addClass('cart-open');
+								}).mouseleave(function() {
+									$.Gomag.hideCartSummary('div._cartShow');
+									$('div._cartShow').removeClass('cart-open');
+								});
+								//Cart2
+								$('.cart2').hover(function() {
+									$.Gomag.showCartSummary('div._cartShow2');
+									$('div._cartShow2').addClass('cart-open');
+								}, function() {
+									$.Gomag.hideCartSummary('div._cartShow2');
+									$('div._cartShow2').removeClass('cart-open');
+								});
+								$(document).on('click', '.dropdown-toggle', function() {
+									window.location = $(this).attr('href');
+								})
+							})
+						</script>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="navPositionHolder" style="height:0"></div>
+	<div id="navigation">
+		<nav id="main-menu" class="main-menu container-h full clearfix">
+			<a href="#main-menu" class="menu-trg">
+				<span>&nbsp;</span>
+			</a>
+			<div class="container-h nav-menu-hh clearfix">
+	<!-- BASE MENU -->
+	<ul class="nav-menu base-menu" style="display: none;">
+		<li class="all-product-button menu-drop">
+			<a class="" href="#mm-2">Toate Produsele <i class="fa fa-angle-down"></i></a>
+			<div class="menu-dd homepage">
+				<ul class="FH">
+					<li class="ifDrop __GomagMM ">
+														<a
+									href="boxe.html"
+									class=""
+									data-Gomag=''
+									data-block-name="mainMenuD0">
+										boxe
+								</a>
+					</li>
+													</ul>
+			</div>
+		</li>
+					</ul> <!-- end of BASE MENU -->
+</div>
+			<ul class="mobile-icon fr">
+								<li class="phone-m">
+					<a href="tel:">
+						<i class="fa fa-phone" aria-hidden="true"></i>
+					</a>
+				</li>
+									<li class="user-m">
+						<a href="inregistrare.html">
+							<i class="fa fa-user" aria-hidden="true"></i>
+						</a>
+					</li>
+								<li class="cart-m">
+					<a href="cos-de-cumparaturi.html">
+						<span class="q-cart">0</span>
+						<i class="fa fa-shopping-bag" aria-hidden="true"></i>
+					</a>
+				</li>
+				<li class="search-m">
+					<a>
+						<i class="fa fa-search search-open" aria-hidden="true"></i>
+						<i style="display:none" class="fa fa-times search-close" aria-hidden="true"></i>
+					</a>
+				</li>
+							</ul>
+		</nav>
+		<!-- end main-nav -->
+		<div style="display:none" class="search-form-box search-toggle">
+			<form name="search-form" class="search-form" action="produse.html" id="_searchFormMobileToggle">
+				<input id="_autocompleteSearchMobileToggle" name="c" class="input-placeholder" type="text" autofocus="autofocus" placeholder="Cauta in site...">
+				<button id="_doSearchMobile" class="search-button">
+					<i class="fa fa-search" aria-hidden="true"></i>
+				</button>
+				<script>
+					$(document).ready(function() {
+						$('#_autocompleteSearchMobileToggle').autocomplete({
+							serviceUrl: 'http://ecgi.gomag.ro/autocomplete',
+							minChars: 2,
+							appendTo: '#_searchFormMobileToggle',
+							width: parseInt($('#_doSearchMobile').offset().left) - parseInt($('#_autocompleteSearchMobileToggle').offset().left),
+							formatResult: function(suggestion, currentValue) {
+								return suggestion.value;
+							},
+							onSelect: function(suggestion) {
+								$(this).val(suggestion.data);
+							}
+						});
+					});
+				</script>
+			</form>
+		</div>
+	</div>
+		<!-- #navigation.sticky -->
+	<div style="display:none" id="navigation" class="sticky" data-block="StickyNavigation">
+		<nav id="main-menu" class="main-menu fixed container-h full">
+			<a href="#main-menu" class="menu-trg">
+				<span>&nbsp;</span>
+			</a>
+			<div class="container-h nav-menu-hh clearfix">
+				<!-- FIXED menu -->
+				<ul class="nav-menu">
+					<li class="all-product-button menu-drop sticky">
+						<a href="">
+							<i class="fa fa-bars fa-fix" aria-hidden="true"></i>
+						</a>
+						<ul class="menu-dd sticky">
+									<li class="ifDrop">
+																					<a href="boxe.html" data-gomag='' data-block-name="mainMenuD0">
+												boxe
+											</a>
+									</li>
+																					</ul>
+					</li>
+				</ul>
+				<!-- end of ITC menu -->
+				<div id="stickyLogo"></div>
+				<!-- Sticky logo -->
+									<div class="search-form-box stickySearch">
+						<form name="search-form" class="search-form" action="produse.html" id="_searchFormStickyHeader">
+							<input id="_autocompleteSearchStickyHeader" name="c" class="input-placeholder" type="text" placeholder="Cauta in site...">
+							<button id="_doSearchSticky" class="search-button">
+								<i class="fa fa-search" aria-hidden="true"></i>
+							</button>
+							<script>
+								$(document).ready(function() {
+									$('#_autocompleteSearchStickyHeader').autocomplete({
+										serviceUrl: 'http://ecgi.gomag.ro/autocomplete',
+										minChars: 2,
+										appendTo: '#_searchFormStickyHeader',
+										width: parseInt($('#_doSearchSticky').offset().left) - parseInt($('#_autocompleteSearchStickyHeader').offset().left),
+										formatResult: function(suggestion, currentValue) {
+											return suggestion.value;
+										},
+										onSelect: function(suggestion) {
+											$(this).val(suggestion.data);
+										}
+									});
+								});
+							</script>
+						</form>
+					</div>
+					<!-- Sticky Search -->
+					<div class="cart-header-btn cart2 fr">
+						<a class="cart-drop2 _showCartHeader2 fr" href="cos-de-cumparaturi.html">
+							<i class="fa fa-shopping-bag fa-fix" aria-hidden="true"></i>
+							<strong>Cosul tau</strong>
+							<span class="total count cartPrice">Total:
+								<i>0,00
+									Lei</i>
+							</span>
+						</a>
+						<i class="cart-drop-arrow fa fa-angle-down fa-fix _showCartHeader"></i>
+						<div class="cart-dd _cartShow2 cart-closed"></div>
+					</div>
+							</div>
+		</nav>
+		<!-- end main-nav -->
+	</div>
+	<!-- /#navigation.sticky -->
+</header>
+<!-- end main-header -->			<div class="discount-tape hellobar-fashion bg-main container-h full hide" id="_gomagHellobar"></div>
+				<script>
+		$(document).ready(function () {
+			var sync1 = $("#sync1");
+			var sync2 = $("#sync2");
+			sync1.owlCarousel({
+				singleItem : true,
+				slideSpeed : 1000,
+								autoPlay: 8000,
+				navigation: true,
+				pagination: true,
+									afterAction : syncPosition,
+								stopOnHover: true, // Stops autoplay
+				responsiveRefreshRate : 200,
+			});
+							sync2.owlCarousel({
+					items : 1,
+					itemsDesktop: [1199, 1],
+					itemsDesktopSmall: [979, 1],
+					itemsTablet: [768, 2],
+					itemsMobile: [479, 1],
+					pagination:false,
+					responsiveRefreshRate : 100,
+					stopOnHover: true, // Stops autoplay
+					afterInit : function(el){
+					  el.find(".owl-item").eq(0).addClass("synced");
+					}
+				});
+				function syncPosition(el){
+					var current = this.currentItem;
+					$("#sync2")
+					  .find(".owl-item")
+					  .removeClass("synced")
+					  .eq(current)
+					  .addClass("synced")
+					if($("#sync2").data("owlCarousel") !== undefined){
+					  center(current)
+					}
+				}
+				$("#sync2").on("click", ".owl-item", function(e){
+					e.preventDefault();
+					var number = $(this).data("owlItem");
+					sync1.trigger("owl.goTo",number);
+				});
+				function center(number){
+					var sync2visible = sync2.data("owlCarousel").owl.visibleItems;
+					var num = number;
+					var found = false;
+					for(var i in sync2visible){
+					  if(num === sync2visible[i]){
+						var found = true;
+					  }
+					}
+					if(found===false){
+					  if(num>sync2visible[sync2visible.length-1]){
+						sync2.trigger("owl.goTo", num - sync2visible.length+2)
+					  }else{
+						if(num - 1 === -1){
+						  num = 0;
+						}
+						sync2.trigger("owl.goTo", num);
+					  }
+					} else if(num === sync2visible[sync2visible.length-1]){
+					  sync2.trigger("owl.goTo", sync2visible[1])
+					} else if(num === sync2visible[0]){
+					  sync2.trigger("owl.goTo", num-1)
+					}
+				};
+					});
+	</script>
+	<div class="bnn-group-left container-bg gomagComponent" data-gomag-component="">
+		<div id="main-bnn">
+			<div class="bnn-group bnn-group-big" id="sync1">
+															<a href="" target="_self" class="_sliderElement" id="banner_4">
+							<img src="cdn5-gomag-ro/domains/factual/files/banner/cdn5_subdomain/_big04017.jpg" alt="" class="img-responsive">
+						</a>
+												</div>
+					</div>
+	</div>
+		<div class="icon-group container-h container-bg clearfix homepage ">
+		<div class="row">
+												<div class="col-xs-4 col">
+						<div class="trust-h">
+						<a href="javascript:void(0);"  target="_self">
+							<img class="icon" src="cdn5-gomag-ro/domains/factual/files/banner/cdn5_subdomain/_trust17000.png" alt="TRANSPORT GRATUIT">
+							<p class="icon-label">
+								TRANSPORT GRATUIT
+								<span>Pentru comenzi mai mari de 200 lei</span>
+							</p>
+													</a>
+						</div>
+					</div>
+																<div class="col-xs-4 col">
+						<div class="trust-h">
+						<a href="javascript:void(0);"  target="_self">
+							<img class="icon" src="cdn5-gomag-ro/domains/factual/files/banner/cdn5_subdomain/_trust26694.png" alt="RETUR 30 ZILE">
+							<p class="icon-label">
+								RETUR 30 ZILE
+								<span>Ai 30 de zile la dispozitie pentru retur</span>
+							</p>
+													</a>
+						</div>
+					</div>
+																<div class="col-xs-4 col">
+						<div class="trust-h">
+						<a href="javascript:void(0);"  target="_self">
+							<img class="icon" src="cdn5-gomag-ro/domains/factual/files/banner/cdn5_subdomain/_trust33724.png" alt="DESCHIDERE COLET">
+							<p class="icon-label">
+								DESCHIDERE COLET
+								<span>Verifici continutul coletului la livrare</span>
+							</p>
+													</a>
+						</div>
+					</div>
+									</div>
+	</div>
+		<div class="clear"></div>
+	<div class="container-h container-bg gomagComponent" data-gomag-component="">
+		<div class="pinGrid pin-home">
+							<div class="pin ">
+					<a href="" target="_self" class="_sliderElement" id="banner_1">
+						<img class="img-responsive" src="cdn5-gomag-ro/domains/factual/files/banner/cdn5_subdomain/Joe-Fresh-Summer-2016-Campaign035879.jpg">
+					</a>
+									</div>
+							<div class="pin ">
+					<a href="" target="_self" class="_sliderElement" id="banner_2">
+						<img class="img-responsive" src="cdn5-gomag-ro/domains/factual/files/banner/cdn5_subdomain/dresses-banner122608.png">
+					</a>
+									</div>
+							<div class="pin ">
+					<a href="" target="_self" class="_sliderElement" id="banner_3">
+						<img class="img-responsive" src="cdn5-gomag-ro/domains/factual/files/banner/cdn5_subdomain/fashion-is-just-a-click-awayss5791.jpg">
+					</a>
+									</div>
+					</div>
+	</div>
+	<div class="clear"></div>
+<div class="clear home-page"></div>
+<div class="slider_promo_h" data-block="productsDiscounts">
+	</div>
+<div class="clear"></div>
+<div class="clear"></div>
+<div class="clear"></div>
+<div class="clear"></div>
+			<footer class="container-h full">
+	<div class="main-footer container-h container-bg clearfix">
+		<div class="row">
+														<div class="col-md-3 col-xs-4 col">
+						<h4>
+															Magazinul meu
+													</h4>
+													<ul class="footer-submenu" data-block="footerFirstColumnLinks">
+																	<li><a href="despre-noi.html"    >Despre noi</a></li>
+																	<li><a href="termeni-si-conditii.html"    >Termeni si Conditii</a></li>
+																	<li><a href="politica-de-confidentialitate.html"    >Politica de Confidentialitate</a></li>
+																	<li><a href="contact.html"    >Contact</a></li>
+															</ul>
+																	</div>
+									<div class="col-md-3 col-xs-4 col">
+						<h4>
+															Clienti
+													</h4>
+													<ul class="footer-submenu" data-block="footerFirstColumnLinks">
+																	<li><a href="metode-de-plata.html"    >Metode de Plata</a></li>
+																	<li><a href="politica-de-retur.html"    >Politica de Retur</a></li>
+																	<li><a href="garantia-produselor.html"    >Garantia Produselor</a></li>
+																	<li><a href="https://webgate.ec.europa.eu/odr/main/index.cfm?event=main.home.show&amp;lng=RO"    >Online Dispute Resolution</a></li>
+																	<li><a href="http://www.anpc.gov.ro/"    >ANPC</a></li>
+															</ul>
+																	</div>
+		<div class="col-md-2 col-xs-4 col">
+			<h4>Date comerciale <i class="fa fa-angle-down" aria-hidden="true"></i></h4>
+			<ul class="footer-submenu">
+				<li><strong>test</strong></li>
+				<li>J19/12/1996</li>
+				<li>8021947</li>
+				<li></li>
+				<li></li>
+							</ul>
+		</div>
+		<div class="col-md-4 col-xs-12 col col-right">
+			<div class="payment-accepted">
+																											</div>
+			<p class="copyright">&copy;Copyright test 2019</p>
+												Platforma E-commerce by<a href="http://www.gomag.ro" target="_blank" rel="nofollow"> Gomag</a>
+										<div data-block="FooterCopyrightBlock">
+			</div>
+		</div>
+		<div class="col-md-12" data-block="FooterAffiliateBlock">
+																		<div class="gomag_footer_end">
+						</div>
+											<div class="gomag_footer_end">
+						</div>
+											<div class="gomag_footer_end">
+						</div>
+											<div class="gomag_footer_end">
+						</div>
+											<div class="gomag_footer_end">
+						</div>
+														</div>
+		</div>
+	</div>
+</footer> <!-- end main-footer -->
+			<div id="top"><a href="#top" style=""><i class="fa fa-angle-up"></i></a></div>
+		</div> <!-- end wrapper -->
+		<script>
+			$(document).ready(function(){
+				$(document).on('click', '.setCompare', function(){
+					if(!$(this).hasClass('ignoreChecked')){
+						if($(this).children('.new-checkbox').hasClass('checked')){
+							$(this).children('.new-checkbox').removeClass('checked');
+							$(this).children('.compareCk').prop('checked', false);
+						} else {
+							$(this).children('.new-checkbox').addClass('checked');
+							$(this).children('.compareCk').prop('checked', true);
+						}
+					}
+					var remove = $(this).children('.new-checkbox').hasClass('checked') ? 0 : $(this).attr('data-product');
+					// console.log(remove);
+					$.get('http://ecgi.gomag.ro/set-compare', {product: $(this).attr('data-product'), removeProduct: remove}, function(data){
+						if(data.count > 1){
+							$.fancybox({
+								'type': 'iframe',
+								padding: 0,
+								width: "100%",
+								height: "100%",
+								autoSize: false,
+								fitToView: true,
+								autoDimensions: false,
+								scrolling: 'no',
+								'href' : 'http://ecgi.gomag.ro/get-compare'
+							});
+						} else if(data.count == 1) {
+							showInfoCompare();
+						}
+					}, 'json')
+				});
+			});
+			//scroll to top
+			$("a[href='#top']").click(function(){return $("html, body").animate({scrollTop:0},"fast"),!1})
+			$(window).scroll(function(){
+				$(window).scrollTop()>100?$("#top a").css({opacity:"1",visibility:"visible",transform:"translateY(0)"}):$("#top a").css({opacity:"0",visibility:"hidden",transform:"translateY(-100px)"})
+			});
+		</script>
+		<script src="cdn5-gomag-ro/themes/fashion/js/cdn5_subdomain/plugins.js"></script>
+					<script src="cdn5-gomag-ro/domains/ecgi/files/themes/cdn5_subdomain/custom.js"></script>
+		<script src="cdn5-gomag-ro/themes/fashion/js/cdn5_subdomain/dev.js"  data-values='{"seeMore": "Vezi mai multe","seeLess": "Vezi mai putine"}'></script>
+									<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "LocalBusiness",
+   "name": "test",
+  "url": "http://ecgi.skw.ro",
+  "logo": "http://ecgi.skw.ro/domains/ecgi/files/company/",
+  "image": "http://ecgi.skw.ro/domains/ecgi/files/company/",
+  "vatID" : "8021947",
+  "address": {
+    "@type": "PostalAddress",
+	"addressCountry":"RO",
+    "addressLocality": "",
+    "addressRegion": "",
+    "streetAddress": ""
+  },
+  "telephone": "",
+  "email": "",
+  "priceRange": "2150.00-2150.00"
+}
+</script>
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "url": "http://ecgi.skw.ro",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "http://ecgi.gomag.ro/produse?c={query_string}",
+      "query-input": "required name=query_string"
+    }
+}
+</script>					
+		<script>
+			function showInfoCompare(){
+				$('.setCompareInfoH').animate({top: 0,opacity: 1},400).css('display', 'block');
+				setTimeout(function(){
+					$('.setCompareInfoH').animate({top: 0,opacity: 0},400).css('display', 'none'); // Forcing to hide after 5s
+					$('.closeList-pp').click();
+				},5000);
+			}
+			$(document).ready(function(){
+				$('.compareProductClse').click(function(e){
+					$('.setCompareInfoH').animate({top: 40,opacity: 0},400);
+					setTimeout(function(){
+						$('.setCompareInfoH').css('display', 'none');
+					},400);
+					e.preventDefault();
+				});
+			})
+		</script>
+				<div style="display:none;" class="add2cart catListPP"></div>
+		<div class="clear  catListPP"></div>
+		<div class="add2cart-pp  catListPP">
+			<img class="close-pp" src="cdn5-gomag-ro/themes/fashion/gfx/cdn5_subdomain/close-ppb.png" height="20" width="20" alt="close">
+			<i class="fa fa-shopping-bag" aria-hidden="true"></i>
+			<p class="prod-det-ttl" id="addedProduct"></p>
+			<p class="pop-r-txt">A fost adaugat cu succes in cosul tau de cumparaturi!</p>
+			<div class="clear"></div>
+			<a href="cos-de-cumparaturi.html" class="btn fl">Vezi cosul</a>
+			<a href="finalizeaza-comanda.html" class="btn btn-cmd fr">Trimite comanda</a>
+		</div> <!-- end add to cart popup -->
+		<div class="setCompareInfoH">
+			<img class="compareProductClse close-pp" src="cdn5-gomag-ro/themes/fashion/gfx/cdn5_subdomain/close-ppb.png" height="20" width="20" alt="close">
+			<p class="prod-det-ttl" id="wishlistProducts">Comparare</p>
+			<p class="pop-r-txt">Trebuie sa mai adaugi cel putin un produs pentru a compara produse.</p>
+			<div class="clear"></div>
+		</div> <!-- end compare popup -->
+					<script>
+	$(document).ready(function(){
+		$.Gomag.bind('User/Data/Response', function(event, data){
+			cart = data.cart;
+			 	$('.q-cart').html(cart.quantity);
+				$('.cartPrice').html(cart.subtotal+' '+cart.currency);
+				$('.cartPrice').show();
+				$('.cart .fa-angle-down').show();
+				$('.q-cart').show();
+				$('.cartProductCount').html(cart.itemCount);
+				$(document).trigger('Gomag.ajaxContentLoaded', [data]);
+		},'json');
+	})
+</script>
+				<script>
+			$(document).ready(function(){
+				$.Gomag.init({"env":{"Page\/Homepage":"homepage"},"widgetUrl":"http:\/\/ecgi.gomag.ro\/widget.js","ajaxLoadUserDataUrl":"http:\/\/ecgi.gomag.ro\/request\/data","ajaxLoadUserProductsUrl":"http:\/\/ecgi.gomag.ro\/request\/product?c=1&h=","cartSummaryUrl":"http:\/\/ecgi.gomag.ro\/cart-dropdown","ajaxLoadProductDetails":"http:\/\/ecgi.gomag.ro\/product\/ajax\/details"});
+			})
+		</script>
+	</body>
+</html>
